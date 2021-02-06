@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+
+    <!--components-->
+    <link rel="stylesheet" href="components/menu/index.css" />
+  </head>
+  <body>
+    <div id="root" class="root">
+      <!-- layout -->
+      <div class="layout">
+        <!-- layout header -->
+        <div class="layout__header">
+          <h2 class="layout__header-title">Minhas Finanças</h2>
+
+          <div class="menu">
+            <a
+              href="/contas"
+              navegarpara="/contas"
+              class="menu__item menu__item--active"
+              >Contas</a
+            >
+            <a href="/categorias" navegarpara="/categorias" class="menu__item"
+              >Categorias</a
+            >
+            <a
+              href="/movimentos"
+              navegarpara="/movimentos"
+              class="menu__item menu__item--active"
+              >Movimentações</a
+            >
+          </div>
+        </div>
+        <!-- layout header end -->
+        <!-- layout content -->
+        <div class="layout__content">
+          <h3 class="layout__content-title">Meus movimentos</h3>
+          <!-- novo movimento -->
+          <div class="movimento-form">
+            <div class="form-field">
+              <label class="form-field__label">Valor</label>
+              <input type="text" class="form-field__input" />
+            </div>
+            <div class="movimento-form__buttons">
+              <button
+                type="button"
+                class="movimento-form__button movimento-form__button--debit"
+              >
+                Débito
+              </button>
+              <button
+                type="button"
+                class="movimento-form__button movimento-form__button--credit"
+              >
+                Crédito
+              </button>
+            </div>
+          </div>
+          <!-- novo movimento end -->
+          <!-- lista de movimentos -->
+          <div class="movimentos-list">
+            <!-- um item -->
+            <div class="movimentos-list__item">
+              <div class="movimento">
+                <div class="movimento__type movimento__type--debit">
+                  Despesa
+                </div>
+                <div class="movimento__value">R$30,00</div>
+                <div class="movimento__description">lorem ipsum dolor</div>
+              </div>
+            </div>
+            <!-- um item end -->
+            <!-- um item -->
+            <div class="movimentos-list__item">
+              <div class="movimento">
+                <div class="movimento__type movimento__type--debit">
+                  Despesa
+                </div>
+                <div class="movimento__value">R$30,00</div>
+                <div class="movimento__description">lorem ipsum dolor</div>
+              </div>
+            </div>
+            <!-- um item end -->
+            <!-- um item -->
+            <div class="movimentos-list__item">
+              <div class="movimento">
+                <div class="movimento__type movimento__type--credit">
+                  Receita
+                </div>
+                <div class="movimento__value">R$100,00</div>
+                <div class="movimento__description">lorem ipsum dolor</div>
+              </div>
+            </div>
+            <!-- um item end -->
+          </div>
+          <!-- lista de movimentos end -->
+        </div>
+      </div>
+      <!-- layout end -->
+    </div>
+    <!--components-->
+    <script src="components/menu/index.js"></script>
+    <script src="scripts.js"></script>
+  </body>
+</html>
