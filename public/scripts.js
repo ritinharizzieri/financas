@@ -1,13 +1,14 @@
+// Menu
 const menuItems = [
   { href: "/movimentos", text: "Movimentos", active: false },
   { href: "/categorias", text: "categorias", active: false },
   { href: "/contas", text: "contas", active: false },
 ];
-
 const menuItemsList = menuItems.map((item) => {
   return new MenuItemComponent(item.href, item.text, item.active);
 });
 
+// Moviment
 const movimentosItems = [
   {
     type: "Despesa",
@@ -28,7 +29,6 @@ const movimentosItems = [
     description: "lorem ipsum dolor 3",
   },
 ];
-
 const movimentosItemsList = movimentosItems.map((item) => {
   return new MovimentosItemComponent(
     item.type,
@@ -38,4 +38,15 @@ const movimentosItemsList = movimentosItems.map((item) => {
   );
 });
 
-console.log(movimentosItems);
+// Account
+const accountItems = [
+  { name: "Nubank", balance: 100.0 },
+  { name: "Itau", balance: 80.0 },
+  { name: "Carteira", balance: 30.0 },
+  { name: "Santander", balance: 50.0 },
+];
+const accountListItems = accountItems.map((item) => {
+  return new AccountListItemComponent(item.name, item.balance);
+});
+
+console.log(accountListItems);
