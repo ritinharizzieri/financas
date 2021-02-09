@@ -49,4 +49,15 @@ const accountListItems = accountItems.map((item) => {
   return new AccountListItemComponent(item.name, item.balance);
 });
 
-console.log(accountListItems);
+// Category
+const categoryItems = [
+  { name: "Alimentação" },
+  { name: "Mercado" },
+  { name: "Transporte" },
+  { name: "Faculdade" },
+];
+const categoryListItems = categoryItems.map((item) => {
+  return new CategoryListItemComponent(item.name);
+});
+
+console.log(categoryListItems);
