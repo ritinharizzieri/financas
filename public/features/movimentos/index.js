@@ -35,6 +35,26 @@ function ComponentAccount() {
   };
 }
 
+function ComponentCategory() {
+  this.categoryItems = [
+    { name: "Alimentação" },
+    { name: "Mercado" },
+    { name: "Transporte" },
+    { name: "Faculdade" },
+  ];
+
+  this.categoryListItems = this.categoryItems.map((item) => {
+    return new CategoryListItemComponent(item.name).render();
+  });
+
+  this.render = () => {
+    this.items = this.categoryListItems;
+    return `<div class="category-list"> ${this.items.map(
+      (item) => item
+    )} </div>`;
+  };
+}
+
 function MovimentosFeature() {
   this.root = document.createElement("div");
 
@@ -42,6 +62,7 @@ function MovimentosFeature() {
     this.root.innerHTML = `
     ${new ComponentMenu().render()}
     ${new ComponentAccount().render()}
+    ${new ComponentCategory().render()}
     `;
 
     return this.root.innerHTML;
