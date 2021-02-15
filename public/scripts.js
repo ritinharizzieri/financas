@@ -60,4 +60,5 @@ const categoryListItems = categoryItems.map((item) => {
   return new CategoryListItemComponent(item.name);
 });
 
-console.log(categoryListItems);
+//console.log(categoryListItems);
+console.log("MovimentosFeature", new MovimentosFeature().render());
