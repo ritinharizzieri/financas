@@ -1,77 +1,22 @@
-function ComponentMenu() {
-  this.menuItems = [
-    { href: "/movimentos", text: "Movimentos", active: false },
-    { href: "/categorias", text: "categorias", active: false },
-    { href: "/contas", text: "contas", active: false },
-  ];
+function MovimentosFeature() {
+  this.root = document.createElement("div");
 
-  this.menuItemsList = this.menuItems.map((item) => {
-    return new MenuItemComponent(item.href, item.text, item.active).render();
-  });
-
-  this.render = () => {
-    this.items = this.menuItemsList;
-    return `<div class="menu"> ${this.items.map((item) => item)} </div>`;
-  };
-}
-
-function ComponentAccount() {
-  this.accountItems = [
-    { name: "Nubank", balance: 100.0 },
-    { name: "Itau", balance: 80.0 },
-    { name: "Carteira", balance: 30.0 },
-    { name: "Santander", balance: 50.0 },
-  ];
-
-  this.accountListItems = this.accountItems.map((item) => {
-    return new AccountListItemComponent(item.name, item.balance).render();
-  });
-
-  this.render = () => {
-    this.items = this.accountListItems;
-    return `<div class="account-list"> ${this.items.map(
-      (item) => item
-    )} </div>`;
-  };
-}
-
-function ComponentCategory() {
-  this.categoryItems = [
-    { name: "Alimentação" },
-    { name: "Mercado" },
-    { name: "Transporte" },
-    { name: "Faculdade" },
-  ];
-
-  this.categoryListItems = this.categoryItems.map((item) => {
-    return new CategoryListItemComponent(item.name).render();
-  });
-
-  this.render = () => {
-    this.items = this.categoryListItems;
-    return `<div class="category-list"> ${this.items.map(
-      (item) => item
-    )} </div>`;
-  };
-}
-
-function ComponentMovimentos() {
   this.movimentosItems = [
     {
+      id: 1,
       type: "Despesa",
-      typeClass: "debit",
       value: 30.0,
       description: "lorem ipsum dolor 1",
     },
     {
+      id: 2,
       type: "Despesa",
-      typeClass: "debit",
       value: 20.0,
       description: "lorem ipsum dolor 2",
     },
     {
+      id: 3,
       type: "Receita",
-      typeClass: "credit",
       value: 10.0,
       description: "lorem ipsum dolor 3",
     },
@@ -79,32 +24,34 @@ function ComponentMovimentos() {
 
   this.movimentosItemsList = this.movimentosItems.map((item) => {
     return new MovimentosItemComponent(
+      item.id,
       item.type,
-      item.typeClass,
       item.value,
       item.description
     ).render();
   });
 
-  this.render = () => {
-    this.items = this.movimentosItemsList;
+  this.movimentosButtonsItens = [{ type: "Débito" }, { type: "Crédito" }];
 
-    return `
-    <div class="movimentos-list">
-      ${this.items.map((item) => item)}
-    </div>`;
-  };
-}
-
-function MovimentosFeature() {
-  this.root = document.createElement("div");
+  this.movimentosButtonsForm = this.movimentosButtonsItens.map((item) => {
+    return new MovimentosFormButtonsComponent(item.type).render();
+  });
 
   this.render = () => {
+    this.itemsList = this.movimentosItemsList;
+    this.buttonsForm = this.movimentosButtonsForm;
+
     this.root.innerHTML = `
-    ${new ComponentMenu().render()}
-    ${new ComponentAccount().render()}
-    ${new ComponentCategory().render()}
-    ${new ComponentMovimentos().render()}
+    <div class="movimento-form">
+      <div class="form-field">
+        <label class="form-field__label">Valor</label>
+        <input type="text" class="form-field__input" />
+        ${this.buttonsForm.map((item) => item)}
+      </div> 
+    </div>     
+    <div class="movimentos-list">
+      ${this.itemsList.map((item) => item)}
+    </div>
     `;
 
     return this.root.innerHTML;

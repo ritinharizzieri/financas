@@ -1,11 +1,10 @@
 function MovimentosItemComponent(
+  id = number,
   type = "",
-  typeClass = "",
   value = float,
   description = ""
 ) {
-  this.type = type;
-  this.typeClass = typeClass;
+  (this.id = id), (this.type = type);
   this.value = value;
   this.description = description;
 
@@ -13,7 +12,9 @@ function MovimentosItemComponent(
     return `
       <div class="movimentos-list__item">
         <div class="movimento">
-          <div class="movimento__type movimento__type--${this.typeClass}">${this.type}</div>
+          <div class="movimento__type movimento__type--${
+            this.type == "Despesa" ? "debit" : "credit"
+          }">${this.type}</div>
           <div class="movimento__value">R$ ${this.value}</div>
           <div class="movimento__description">${this.description}</div>
         </div>
