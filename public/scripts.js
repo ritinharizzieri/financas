@@ -19,4 +19,6 @@ movimentosForm.onCreditClick = (valorCredito) => {
 
 movimentosForm.onDebitClick = (valorDebito) => {
   console.log(`adicionou um debito de R$ ${valorDebito}`);
+  movimentosList.setItem("debito", valorDebito);
+  movimentosList.init();
 };
