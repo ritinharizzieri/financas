@@ -21,15 +21,18 @@ function MovimentosListComponent(rootEl) {
     this.el.innerHTML = `
     <div class="movimentos-list">
       <div class="movimentos-list__item js-movimento-list">
-        <div class="movimento">
-          <div class="movimento__type movimento__type--${this.type}">${this.type}</div>
-          <div class="movimento__value">R$ ${this.value}</div>
+        <div class="movimento movimento__type--${this.type}">
+          <div class="movimento__type">
+          ${this.type == "debito" ? "Débito" : "Crédito"}
+          </div>
+          <div class="movimento__value"><strong>R$ ${this.value}</strong></div>
           <div class="movimento__description">lorem ipsum dolor</div>          
         </div>
         <div class="movimento__remove js-remove-item">Remover</div>
       </div>
     </div>
     `;
+    console.log(this.type);
     this.rootEl.appendChild(this.el);
   };
 
