@@ -1,5 +1,5 @@
 // componente movimentos-form
-const rootEl = document.querySelector("#root");
+const rootEl = document.querySelector("#root__movimentos-form");
 const movimentosForm = new MovimentosFormComponent(rootEl);
 
 movimentosForm.init();
@@ -7,7 +7,7 @@ movimentosForm.setTitle("Novo movimento");
 console.log(movimentosForm);
 
 // componente movimentos-list
-const rootList = document.querySelector("#root-list");
+const rootList = document.querySelector("#root__movimentos-list");
 const movimentosList = new MovimentosListComponent(rootList);
 
 movimentosForm.onCreditClick = (valorCredito) => {

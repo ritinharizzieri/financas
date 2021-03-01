@@ -1,3 +1,12 @@
-.head {
-  color: red;
+body {
+  background: #54b4cc;
+  margin: 0;
+  padding: 0;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+#root {
+  width: 100%;
+  margin: 20px auto;
 }

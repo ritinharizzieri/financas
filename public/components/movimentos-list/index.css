@@ -1,0 +1,34 @@
+.movimentos-list {
+  background: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 300px;
+  margin: 10px auto;
+}
+
+.movimento-form input.form-field__input {
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  height: 25px;
+}
+
+.movimento-form__buttons {
+  margin: 10px auto;
+  justify-content: center;
+  display: flex;
+}
+
+.movimento-form__buttons button {
+  border: 0;
+  padding: 10px;
+  margin: 0 10px;
+  border-radius: 3px;
+  color: white;
+}
+
+.movimento-form__button--debit {
+  background: green;
+}
+.movimento-form__button--credit {
+  background: red;
+}
