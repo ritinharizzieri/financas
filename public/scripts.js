@@ -4,21 +4,18 @@ const movimentosForm = new MovimentosFormComponent(rootEl);
 
 movimentosForm.init();
 movimentosForm.setTitle("Novo movimento");
-console.log(movimentosForm);
 
 // componente movimentos-list
 const rootList = document.querySelector("#root__movimentos-list");
 const movimentosList = new MovimentosListComponent(rootList);
+movimentosList.init();
 
 movimentosForm.onCreditClick = (valorCredito) => {
   console.log(`adicionou um credito de R$ ${valorCredito}`);
-  movimentosList.setItem("credito", valorCredito);
-  movimentosList.init();
-  console.log(movimentosList);
+  movimentosList.addItem("credito", valorCredito);
 };
 
 movimentosForm.onDebitClick = (valorDebito) => {
   console.log(`adicionou um debito de R$ ${valorDebito}`);
-  movimentosList.setItem("debito", valorDebito);
-  movimentosList.init();
+  movimentosList.addItem("debito", valorDebito);
 };
