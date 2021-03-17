@@ -8,13 +8,14 @@ function MovimentosListComponent(rootEl) {
   this.value = "";
 
   this.addItem = (type, value) => {
-    const tmp = {
+    // cria uma nova instancia de MovimentoItemComponent
+    const tmp = new MovimentosItemComponent(this.el, {
       id: this.items.length,
       value: value,
       type: type,
-    };
+    });
+    tmp.init();
     this.items = this.items.concat(tmp);
-    this.update();
   };
 
   this.removeItem = (item) => {
@@ -36,17 +37,8 @@ function MovimentosListComponent(rootEl) {
   };
 
   this.render = () => {
-    this.el.innerHTML = `
-    <!-- lista de movimentos -->
-    <div class="movimentos-list">    
-     ${this.items
-       .map((item) => {
-         new MovimentosItemComponent(item).render();
-       })
-       .join("")}
-    </div>
-    <!-- lista de movimentos fim -->
-    `;
+    this.el.innerHTML = '';
+    this.items.forEach((item) => item.update());
     this.rootEl.appendChild(this.el);
   };
 
@@ -57,6 +49,7 @@ function MovimentosListComponent(rootEl) {
 
   this.init = () => {
     this.el = document.createElement("div");
+    this.el.classList.add('movimentos-list');
     this.update();
   };
 }
